@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import path from 'path'
+import path from 'path-browserify'
 import { isExternal } from '@/utils/validate'
-import Item from './Item'
-import AppLink from './Link'
+import Item from './Item.vue'
+import AppLink from './Link.vue'
 import FixiOSBug from './FixiOSBug'
 
 export default {

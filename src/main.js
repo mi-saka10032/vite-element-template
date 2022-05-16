@@ -8,7 +8,7 @@ import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
 import '@/styles/index.scss' // global css
 
-import App from './App'
+import App from './App.vue'
 import store from './store'
 import router from './router'
 
@@ -17,15 +17,16 @@ import '@/permission' // permission control
 
 /**
  * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
+ * you want to use setupProdMockServer for mock api
+ * you can execute: setupProdMockServer()
  *
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
  */
-if (process.env.NODE_ENV === 'production') {
-  const { mockXHR } = require('../mock')
-  mockXHR()
+import { setupProdMockServer } from '@/utils/mockProdServer'
+
+if (import.meta.env.MODE !== 'development') {
+  setupProdMockServer()
 }
 
 // set ElementUI lang to EN
