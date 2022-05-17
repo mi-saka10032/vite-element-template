@@ -3,7 +3,6 @@ import { defineConfig, loadEnv } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import { VitePWA } from 'vite-plugin-pwa'
 import compressPlugin from 'vite-plugin-compression'
 
 // compress: 'gzip' | 'brotli' | 'none'
@@ -46,36 +45,6 @@ export default ({ mode }) => {
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/icons/svg')],
         symbolId: 'icon-[dir]-[name]'
-      }),
-      VitePWA({
-        includeAssets: ['favicon.svg'],
-        manifest: false,
-        registerType: 'autoUpdate',
-        workbox: {
-          runtimeCaching: [
-            {
-              urlPattern: /someInterface/i, // 接口缓存 此处填你想缓存的接口正则匹配
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'interface-cache'
-              }
-            },
-            {
-              urlPattern: /(.*?)\.(js|css|ts)/, // js /css /ts静态资源缓存
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'js-css-cache'
-              }
-            },
-            {
-              urlPattern: /(.*?)\.(png|jpe?g|svg|gif|bmp|psd|tiff|tga|eps)/, // 图片缓存
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'image-cache'
-              }
-            }
-          ]
-        }
       }),
       ...configCompressPlugin(isBuild, 'gzip')
     ],
