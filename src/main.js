@@ -24,10 +24,7 @@ import '@/permission' // permission control
  * please remove it before going online ! ! !
  */
 import { setupProdMockServer } from '@/utils/mockProdServer'
-
-if (import.meta.env.MODE !== 'development') {
-  setupProdMockServer()
-}
+setupProdMockServer(import.meta.env.VITE_APP_BASE_API)
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
