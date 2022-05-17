@@ -43,7 +43,7 @@ export default ({ mode }) => {
       createVuePlugin(),
       vueJsx(),
       createSvgIconsPlugin({
-        iconDirs: [resolve(process.cwd(), 'src/assets/icons/svg')],
+        iconDirs: [resolve(process.cwd(), 'src/icons/svg')],
         symbolId: 'icon-[dir]-[name]'
       }),
       ...configCompressPlugin(isBuild, 'gzip')
