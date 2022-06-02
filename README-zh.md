@@ -6,11 +6,11 @@
 
 > 项目仅对vue-cli相关devDependencies进行拆解重构，替换为vite相关的devDependencies，src内部逻辑无改动。
 
-[原作者项目线上地址](http://panjiachen.github.io/vue-admin-template)
+[原项目线上地址](http://panjiachen.github.io/vue-admin-template)
 
 [原作者国内访问](https://panjiachen.gitee.io/vue-admin-template)
 
-## 原作者相关项目
+## 相关项目
 
 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 
